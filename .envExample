@@ -1,0 +1,9 @@
+// Connection keys
+HTTP_PORT=
+
+
+//DB keys
+DB_HOST='hostname'
+DB_USER='username'
+DB_PASSWORD='password'
+DB_NAME='databasename'
