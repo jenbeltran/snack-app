@@ -1,7 +1,25 @@
-const ResultsOceania = () => (
-	<div>
-		<h1>Results: Oceania</h1>
-	</div>
-);
+import React from 'react';
+import axios from 'axios';
 
-export default ResultsOceania;
+const Oceania = ({ posts }) => {
+	return (
+		<div>
+			<h1>Oceania</h1>
+			<ul>
+				{posts.map((oceaniaSnacks) => (
+					<li key={oceaniaSnacks.id}>
+						{oceaniaSnacks.name}
+						{oceaniaSnacks.country}
+					</li>
+				))}
+			</ul>
+		</div>
+	);
+};
+
+Oceania.getInitialProps = async () => {
+	const { data } = await axios.get('http://localhost:3000/api/oceania');
+	return { posts: data };
+};
+
+export default Oceania;

@@ -1,7 +1,25 @@
-const ResultsSouthAmerica = () => (
-	<div>
-		<h1>Results: South America</h1>
-	</div>
-);
+import React from 'react';
+import axios from 'axios';
 
-export default ResultsSouthAmerica;
+const SouthAmerica = ({ posts }) => {
+	return (
+		<div>
+			<h1>South America</h1>
+			<ul>
+				{posts.map((southSnacks) => (
+					<li key={southSnacks.id}>
+						{southSnacks.name}
+						{southSnacks.country}
+					</li>
+				))}
+			</ul>
+		</div>
+	);
+};
+
+SouthAmerica.getInitialProps = async () => {
+	const { data } = await axios.get('http://localhost:3000/api/south_america');
+	return { posts: data };
+};
+
+export default SouthAmerica;

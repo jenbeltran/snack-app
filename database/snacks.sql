@@ -11,4 +11,8 @@ continent VARCHAR(100) NOT NULL DEFAULT ''
 
 INSERT INTO snacks (name, country, continent) VALUES
 ("Coffee Crisp", "Canada", "North America"),
-("Pocky", "Japan", "Asia"); 
+("Pocky", "Japan", "Asia"),
+("Wispa", "Great Britain", "Europe"),
+("Tortrix Lime", "Guatemala", "Central America"),
+("Chocochitas", "Venezuela", "South America"),
+("Tim Tam", "Australia", "Oceania");

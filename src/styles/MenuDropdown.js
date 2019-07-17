@@ -80,7 +80,7 @@ const MenuDropdown = () => {
 									<Link href="/asia">
 										<MenuItem onClick={handleClose}>Asia</MenuItem>
 									</Link>
-									<Link href="/asia">
+									<Link href="/oceania">
 										<MenuItem onClick={handleClose}>Oceania</MenuItem>
 									</Link>
 									<Link href="/add_snack">
