@@ -46,15 +46,31 @@ app.prepare().then(() => {
 		});
 	});
 
+	server.get('/api/all_snacks', (req, res) => {
+		db.query('SELECT * FROM snacks', (error, results, fields) => {
+			res.json(results);
+		});
+	});
+
 	server.get('/api/snack_details/:id', (req, res) => {
 		db.query('SELECT * FROM snacks WHERE id=?', [ req.params.id ], (error, results, fields) => {
 			res.json(results);
-			console.log(results);
 		});
 	});
 
 	server.get('/snack_details/:id', (req, res) => {
 		app.render(req, res, '/snack_details', { id: req.params.id });
+	});
+
+	TODO: server.post('/api/add_snack', (req, res) => {
+		db.query(
+			'INSERT INTO snacks (name, country) VALUES (?, ?)',
+			[ req.body.name, req.body.country ],
+			(error, results, fields) => {
+				res.json(results);
+				console.log(results);
+			}
+		);
 	});
 
 	server.get('*', (req, res) => {

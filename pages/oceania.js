@@ -1,5 +1,5 @@
-import React from 'react';
 import axios from 'axios';
+import Link from 'next/link';
 
 const Oceania = ({ posts }) => {
 	return (
@@ -8,8 +8,9 @@ const Oceania = ({ posts }) => {
 			<ul>
 				{posts.map((oceaniaSnacks) => (
 					<li key={oceaniaSnacks.id}>
-						{oceaniaSnacks.name}
-						{oceaniaSnacks.country}
+						<Link href={`/snack_details/${oceaniaSnacks.id}`}>
+							<a>{oceaniaSnacks.name}</a>
+						</Link>
 					</li>
 				))}
 			</ul>
