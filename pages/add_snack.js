@@ -19,9 +19,9 @@ const AddSnack = (props) => {
 		event.preventDefault();
 		console.log(`${snackName} ${snackCountry}`);
 		axios
-			.post('http://localhost:3000/api/add_snack', {
-				name    : req.body.name,
-				country : req.body.country
+			.post('http://localhost:3000/api/all_snacks', {
+				name    : { snackName },
+				country : { snackCountry }
 			})
 			.then((res) => res.json())
 			.then((data) => console.log(data))
@@ -29,7 +29,7 @@ const AddSnack = (props) => {
 	};
 
 	return (
-		<form action="/add_snack" method="POST" onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit}>
 			Snack:
 			<input type="text" ref="name" name="name" value={snackName} onChange={handleChangeSnack} />
 			<input type="text" ref="country" name="country" value={snackCountry} onChange={handleChangeCountry} />

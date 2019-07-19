@@ -62,7 +62,7 @@ app.prepare().then(() => {
 		app.render(req, res, '/snack_details', { id: req.params.id });
 	});
 
-	TODO: server.post('/api/add_snack', (req, res) => {
+	TODO: server.post('/api/all_snacks', (req, res) => {
 		db.query(
 			'INSERT INTO snacks (name, country) VALUES (?, ?)',
 			[ req.body.name, req.body.country ],
