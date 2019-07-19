@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import axios from 'axios';
 import SnackInput from '../src/styles/SnackInput';
 import Countries from '../src/styles/Countries';
-import { CardActions } from '@material-ui/core';
 
 const AddSnack = (props) => {
 	const [ snackName, setSnack ] = useState();
@@ -17,11 +16,11 @@ const AddSnack = (props) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(`${snackName} ${snackCountry}`);
+		alert(`${snackName} ${snackCountry}`);
 		axios
 			.post('http://localhost:3000/api/all_snacks', {
-				name    : { snackName },
-				country : { snackCountry }
+				name    : snackName,
+				country : snackCountry
 			})
 			.then((res) => res.json())
 			.then((data) => console.log(data))
@@ -31,8 +30,8 @@ const AddSnack = (props) => {
 	return (
 		<form onSubmit={handleSubmit}>
 			Snack:
-			<input type="text" ref="name" name="name" value={snackName} onChange={handleChangeSnack} />
-			<input type="text" ref="country" name="country" value={snackCountry} onChange={handleChangeCountry} />
+			<input type="text" name="name" value={snackName} onChange={handleChangeSnack} />
+			<input type="text" name="country" value={snackCountry} onChange={handleChangeCountry} />
 			<button type="submit">Submit</button>
 		</form>
 	);

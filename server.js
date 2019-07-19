@@ -8,6 +8,8 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 
 const server = express();
+// Parse all incoming <form> data into an object we can access in our routes with `req.body`
+server.use(express.json());
 
 app.prepare().then(() => {
 	server.get('/api/north_america', (req, res) => {
@@ -62,7 +64,7 @@ app.prepare().then(() => {
 		app.render(req, res, '/snack_details', { id: req.params.id });
 	});
 
-	TODO: server.post('/api/all_snacks', (req, res) => {
+	server.post('/api/all_snacks', (req, res) => {
 		db.query(
 			'INSERT INTO snacks (name, country) VALUES (?, ?)',
 			[ req.body.name, req.body.country ],
