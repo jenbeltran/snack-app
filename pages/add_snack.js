@@ -1,7 +1,8 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import SnackInput from '../src/styles/SnackInput';
-import Countries from '../src/styles/Countries';
+import Router from 'next/router';
+import SnackInput from '../styles/SnackInput';
+import Countries from '../styles/Countries';
 
 const AddSnack = (props) => {
 	const [ snackName, setSnack ] = useState();
@@ -16,24 +17,27 @@ const AddSnack = (props) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		alert(`${snackName} ${snackCountry}`);
 		axios
 			.post('http://localhost:3000/api/all_snacks', {
 				name    : snackName,
 				country : snackCountry
 			})
-			.then((res) => res.json())
 			.then((data) => console.log(data))
+			.then(Router.push(`/`))
 			.catch((err) => console.log(err));
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			Snack:
-			<input type="text" name="name" value={snackName} onChange={handleChangeSnack} />
-			<input type="text" name="country" value={snackCountry} onChange={handleChangeCountry} />
-			<button type="submit">Submit</button>
-		</form>
+		<div>
+			<form onSubmit={handleSubmit}>
+				Snack:
+				<SnackInput />
+				<Countries />
+				<input type="text" name="name" value={snackName} onChange={handleChangeSnack} />
+				<input type="text" name="country" value={snackCountry} onChange={handleChangeCountry} />
+				<button type="submit">Submit</button>
+			</form>
+		</div>
 	);
 };
 

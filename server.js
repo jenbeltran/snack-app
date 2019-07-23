@@ -70,7 +70,6 @@ app.prepare().then(() => {
 			[ req.body.name, req.body.country ],
 			(error, results, fields) => {
 				res.json(results);
-				console.log(results);
 			}
 		);
 	});

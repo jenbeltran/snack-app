@@ -4,9 +4,9 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "node src/server.js",
+		"dev": "node server.js",
 		"build": "next build",
-		"start": "NODE_ENV=production node src/server.js"
+		"start": "NODE_ENV=production node server.js"
 	},
 	"author": "",
 	"license": "ISC",
@@ -21,6 +21,8 @@
 		"next": "^9.0.1",
 		"react": "^16.8.6",
 		"react-dom": "^16.8.6",
+		"react-router": "^5.0.1",
+		"react-router-dom": "^5.0.1",
 		"reactstrap": "^8.0.1",
 		"save": "^2.4.0"
 	}

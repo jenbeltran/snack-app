@@ -63,6 +63,9 @@ const MenuDropdown = () => {
 									<Link href="/search">
 										<MenuItem onClick={handleClose}>Search Snack</MenuItem>
 									</Link>
+									<Link href="/">
+										<MenuItem onClick={handleClose}>All Snacks</MenuItem>
+									</Link>
 									<Link href="/north_america">
 										<MenuItem onClick={handleClose}>North America</MenuItem>
 									</Link>
