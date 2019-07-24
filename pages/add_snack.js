@@ -31,10 +31,8 @@ const AddSnack = (props) => {
 		<div>
 			<form onSubmit={handleSubmit}>
 				Snack:
-				<SnackInput />
-				<Countries />
-				<input type="text" name="name" value={snackName} onChange={handleChangeSnack} />
-				<input type="text" name="country" value={snackCountry} onChange={handleChangeCountry} />
+				<SnackInput name="name" value={snackName} onChange={handleChangeSnack} />
+				<Countries name="country" value={snackCountry} onChange={handleChangeCountry} />
 				<button type="submit">Submit</button>
 			</form>
 		</div>

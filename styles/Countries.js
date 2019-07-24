@@ -1,6 +1,6 @@
-const Countries = () => (
+const Countries = (props) => (
 	<div>
-		<select id="country" name="country">
+		<select name={props.name} value={props.value} onChange={props.onChange}>
 			<option value="Afganistan">Afghanistan</option>
 			<option value="Albania">Albania</option>
 			<option value="Algeria">Algeria</option>

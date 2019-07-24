@@ -1,18 +1,30 @@
 import React from 'react';
 import axios from 'axios';
 
-const SnackDetails = ({ id, posts }) => {
+const CountryAPI = require('../CountryAPI');
+
+const SnackDetails = ({ id, posts, countryCode }) => {
+	for (let i = 0; i < CountryAPI.default.length; i++) {
+		if (posts[0].country === CountryAPI.default[i].name) {
+			const countryCode = CountryAPI.default[i].code;
+			console.log(countryCode);
+		}
+		// 	// {
+		// 	// 	posts[0].country === CountryAPI.default[i].name && console.log(CountryAPI.default[i].code);
+		// 	// }
+	}
+
 	return (
 		<div>
 			<h1>Snack Details {id}</h1>
-			<ul>
-				{posts.map((snackDetails) => (
-					<li key={snackDetails.id}>
-						{snackDetails.name}
-						{snackDetails.country}
-					</li>
-				))}
-			</ul>
+			{posts.map((snackDetails) => (
+				<div key={snackDetails.id}>
+					<p>{snackDetails.name}</p>
+					<p>{snackDetails.country}</p>
+				</div>
+			))}
+
+			<img src="https://www.countryflags.io/CA/shiny/64.png" />
 		</div>
 	);
 };

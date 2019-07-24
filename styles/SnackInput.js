@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-const SnackInput = () => {
+const SnackInput = (props) => {
 	const classes = useStyles();
 	return (
 		<form className={classes.container}>
@@ -24,6 +24,9 @@ const SnackInput = () => {
 				className={classes.textField}
 				margin="normal"
 				variant="outlined"
+				name={props.name}
+				value={props.value}
+				onChange={props.onChange}
 			/>
 		</form>
 	);
