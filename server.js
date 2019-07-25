@@ -66,8 +66,8 @@ app.prepare().then(() => {
 
 	server.post('/api/all_snacks', (req, res) => {
 		db.query(
-			'INSERT INTO snacks (name, country) VALUES (?, ?)',
-			[ req.body.name, req.body.country ],
+			'INSERT INTO snacks (name, country, continent) VALUES (?, ?, ?)',
+			[ req.body.name, req.body.country, req.body.continent ],
 			(error, results, fields) => {
 				res.json(results);
 			}
