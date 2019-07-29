@@ -16,10 +16,10 @@ const SnackDetails = ({ id, posts }) => {
 		<div>
 			{posts.map((snackDetails) => (
 				<div key={snackDetails.id}>
-					<h1>Snack Details</h1>
-					<h3>Continent: {snackDetails.continent}</h3>
-					<p>Snack Name: {snackDetails.name}</p>
-					<p>Country: {snackDetails.country}</p>
+					<h2>Snack Details</h2>
+					<h4>{snackDetails.name}</h4>
+					<h6>Country: {snackDetails.country}</h6>
+					<p>Continent: {snackDetails.continent}</p>
 				</div>
 			))}
 

@@ -1,6 +1,6 @@
 const SearchSnack = () => (
 	<div>
-		<h1>Search Snack</h1>
+		<h2>Search Snack</h2>
 	</div>
 );
 

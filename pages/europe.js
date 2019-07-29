@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Europe = ({ posts }) => {
 	return (
 		<div>
-			<h1>Europe</h1>
+			<h2>Europe</h2>
 			<ul>
 				{posts.map((europeSnacks) => (
 					<li key={europeSnacks.id}>

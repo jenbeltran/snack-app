@@ -3,6 +3,7 @@ import axios from 'axios';
 import Router from 'next/router';
 import SnackInput from '../styles/SnackInput';
 import Countries from '../styles/Countries';
+import { Button } from 'reactstrap';
 
 const CountryCodeAPI = require('../CountryCodeAPI');
 const ContinentAPI = require('../ContinentAPI');
@@ -52,16 +53,18 @@ const AddSnack = (props) => {
 
 	return (
 		<div>
-			<h1>Add a Snack</h1>
+			<h2>Add a Snack</h2>
 			<form onSubmit={handleSubmit}>
-				<h4>Snack Name:</h4>
+				<h5>Snack Name:</h5>
 				<SnackInput name="name" value={snackName} onChange={handleChangeSnack} />
-				<h4>Country of Origin:</h4>
+				<h5>Country of Origin:</h5>
 				<Countries name="country" value={snackCountry} onChange={handleChangeCountry} />
-				<h4 name="continent" value={snackContinent} onChange={handleChangeContinent}>
+				<h5 name="continent" value={snackContinent} onChange={handleChangeContinent}>
 					Continent: {snackContinent}
-				</h4>
-				<button type="submit">Submit</button>
+				</h5>
+				<Button color="primary" size="sm" type="submit">
+					Submit
+				</Button>
 			</form>
 		</div>
 	);

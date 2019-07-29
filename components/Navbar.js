@@ -1,33 +1,43 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import MenuDropdown from '../styles/MenuDropdown';
+import { useState } from 'react';
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink, NavbarBrand } from 'reactstrap';
+import MiniNavbar from './MiniNavbar';
 
-const useStyles = makeStyles((theme) => ({
-	root  : {
-		flexGrow : 1
-	},
-	title : {
-		flexGrow : 1
-	}
-}));
-
-const Navbar = () => {
-	const classes = useStyles();
-
+const Navigationbar = () => {
+	const [ collapse, setCollapse ] = useState(true);
+	const toggleNavbar = () => {
+		setCollapse(!collapse);
+	};
 	return (
-		<div className={classes.root}>
-			<AppBar position="static">
-				<Toolbar>
-					<MenuDropdown />
-					<Typography variant="h6" className={classes.title}>
-						Pick My Snack
-					</Typography>
-				</Toolbar>
-			</AppBar>
+		<div>
+			<Navbar dark>
+				<NavbarToggler onClick={toggleNavbar} className="mr-2" />
+				<NavbarBrand href="/" className="mr-auto">
+					Pick My Snack
+				</NavbarBrand>
+				<Collapse isOpen={!collapse} navbar>
+					<Nav navbar>
+						<NavItem>
+							<NavLink href="/favourites">Favourites</NavLink>
+						</NavItem>
+						<MiniNavbar />
+						<NavItem>
+							<NavLink href="/search">Search</NavLink>
+						</NavItem>
+						<NavItem>
+							<NavLink href="/add_snack">Add a Snack</NavLink>
+						</NavItem>
+					</Nav>
+				</Collapse>
+			</Navbar>
+			<style jsx>{`
+				div {
+					background-color: #7d53de;
+					color: white;
+				}
+			`}</style>
 		</div>
 	);
 };
-export default Navbar;
+
+export default Navigationbar;
