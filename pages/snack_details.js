@@ -14,16 +14,26 @@ const SnackDetails = ({ id, posts }) => {
 
 	return (
 		<div>
+			<h2>Snack Details</h2>
+		
 			{posts.map((snackDetails) => (
-				<div key={snackDetails.id}>
-					<h2>Snack Details</h2>
+				<div key={snackDetails.id}>				
 					<h4>{snackDetails.name}</h4>
+					<img src={snackDetails.photo} alt="snack image" width="300" height="200" />
 					<h6>Country: {snackDetails.country}</h6>
 					<p>Continent: {snackDetails.continent}</p>
 				</div>
 			))}
 
-			<img src={`https://www.countryflags.io/${countryCode}/shiny/64.png`} />
+			<img src={`https://www.countryflags.io/${countryCode}/shiny/64.png`} alt="flag image"/>
+
+			{posts.map((snackDetails) => (
+				<div key={snackDetails.id}>	
+					<h4>Buy Now</h4>
+					<h6>Scan below to purchase</h6>
+					<img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.amazon.ca/s?k=${snackDetails.name}&ref=nb_sb_noss`} alt="snack QR code"/>
+				</div>
+			))}				
 		</div>
 	);
 };

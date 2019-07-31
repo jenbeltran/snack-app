@@ -56,6 +56,8 @@ const AddSnack = (props) => {
 				<Countries name="country" value={snackCountry} onChange={handleChangeCountry} />
 				<h5>Continent: {snackContinent} </h5>
 				<input name="continent" value={snackContinent} />
+				<h5>Photo:</h5>
+				<input name="photo" />
 				<Button color="primary" size="sm" type="submit">
 					Submit
 				</Button>
