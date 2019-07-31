@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Router from 'next/router';
 import SnackInput from '../styles/SnackInput';
@@ -15,24 +15,23 @@ const AddSnack = (props) => {
 	const handleChangeSnack = (e) => {
 		setSnack(e.target.value);
 	};
+
 	const handleChangeCountry = (e) => {
-		console.log('handleChangeCountry');
 		setCountry(e.target.value);
-		console.log(snackCountry);
-		handleChangeContinent(snackCountry);
 	};
 
-	const handleChangeContinent = (snackCountry) => {
-		console.log('handleChangeContinent');
-		for (let i = 0; i < CountryContinentAPI.default.length; i++) {
-			if (snackCountry === CountryContinentAPI.default[i].country) {
-				console.log(CountryContinentAPI.default[i].continent);
-				setContinent(CountryContinentAPI.default[i].continent);
-				console.log('continent state changed');
-				console.log(snackContinent);
+	useEffect(() => {
+		const handleChangeContinent = (snackCountry) => {
+			console.log('handleChangeContinent');
+			for (let i = 0; i < CountryContinentAPI.default.length; i++) {
+				if (snackCountry === CountryContinentAPI.default[i].country) {
+					setContinent(CountryContinentAPI.default[i].continent);
+					console.log(snackContinent);
+				}
 			}
-		}
-	};
+		};
+		handleChangeContinent(snackCountry);
+	});
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -56,6 +55,7 @@ const AddSnack = (props) => {
 				<h5>Country of Origin:</h5>
 				<Countries name="country" value={snackCountry} onChange={handleChangeCountry} />
 				<h5>Continent: {snackContinent} </h5>
+				<input name="continent" value={snackContinent} />
 				<Button color="primary" size="sm" type="submit">
 					Submit
 				</Button>

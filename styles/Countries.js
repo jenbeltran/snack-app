@@ -115,8 +115,7 @@ const Countries = (props) => (
 			<option value="Kazakhstan">Kazakhstan</option>
 			<option value="Kenya">Kenya</option>
 			<option value="Kiribati">Kiribati</option>
-			<option value="Korea North">Korea North</option>
-			<option value="Korea Sout">Korea South</option>
+			<option value="Korea">Korea</option>
 			<option value="Kuwait">Kuwait</option>
 			<option value="Kyrgyzstan">Kyrgyzstan</option>
 			<option value="Laos">Laos</option>
@@ -233,7 +232,7 @@ const Countries = (props) => (
 			<option value="United Kingdom">United Kingdom</option>
 			<option value="Ukraine">Ukraine</option>
 			<option value="United Arab Erimates">United Arab Emirates</option>
-			<option value="United States of America">United States of America</option>
+			<option value="United States">United States of America</option>
 			<option value="Uraguay">Uruguay</option>
 			<option value="Uzbekistan">Uzbekistan</option>
 			<option value="Vanuatu">Vanuatu</option>
