@@ -64,10 +64,14 @@ app.prepare().then(() => {
 		app.render(req, res, '/snack_details', { id: req.params.id });
 	});
 
+	server.get('/search_results/:name', (req, res) => {
+		app.render(req, res, '/search_results', { name: req.params.name });
+	});
+
 	server.post('/api/all_snacks', (req, res) => {
 		db.query(
-			'INSERT INTO snacks (name, country, continent) VALUES (?, ?, ?)',
-			[ req.body.name, req.body.country, req.body.continent ],
+			'INSERT INTO snacks (name, country, continent, photo) VALUES (?, ?, ?, ?)',
+			[ req.body.name, req.body.country, req.body.continent, req.body.photo ],
 			(error, results, fields) => {
 				res.json(results);
 			}
@@ -80,6 +84,6 @@ app.prepare().then(() => {
 
 	server.listen(process.env.HTTP_PORT, (err) => {
 		if (err) throw err;
-		console.log(`>Now serving on localhost:${process.env.HTTP_PORT}.`);
+		console.log(`> Now serving on localhost:${process.env.HTTP_PORT}.`);
 	});
 });
