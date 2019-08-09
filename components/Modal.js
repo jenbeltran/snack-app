@@ -24,7 +24,10 @@ const ModalTemplate = (props) => {
 					<img src={props.photo} alt="snack image" width="200" height="100" />
 				</ModalBody>
 				<ModalFooter>
-					<Button color="primary" onClick={props.onClick}>
+					<Button
+						color="primary"
+						onClick={!props.name || !props.country || !props.photo ? handleToggle : props.onClick}
+					>
 						Submit
 					</Button>{' '}
 					<Button color="secondary" onClick={handleToggle}>

@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import Link from 'next/link';
+import { Container, CardColumns } from 'reactstrap';
+import Cards from '../components/Cards';
+
 const fetch = require('node-fetch');
 
 const SearchSnackResults = () => {
@@ -51,27 +53,30 @@ const SearchSnackResults = () => {
 
 	return (
 		<div>
-			<h2>Search</h2>
-			<form>
-				<input name="name" onChange={handleQuery} />
-				<button type="submit" onClick={handleSubmitQuery}>
-					Submit
-				</button>
-				<button type="submit" onClick={handleClearInputBox}>
-					Reset
-				</button>
-			</form>
-			<ul>
-				{snacks.map((snacks) => {
-					return (
-						<li snacks={snacks} key={snacks.id}>
-							<Link href={`/snack_details/${snacks.id}`}>
-								<a>{snacks.name}</a>
-							</Link>
-						</li>
-					);
-				})}
-			</ul>
+			<Container>
+				<h2>Search</h2>
+				<form>
+					<input name="name" onChange={handleQuery} />
+					<button type="submit" onClick={handleSubmitQuery}>
+						Submit
+					</button>
+					<button type="submit" onClick={handleClearInputBox}>
+						Reset
+					</button>
+				</form>
+
+				<CardColumns>
+					{snacks.map((snacks) => (
+						<Cards
+							name={snacks.name}
+							country={snacks.country}
+							id={snacks.id}
+							photo={snacks.photo}
+							continent={snacks.continent}
+						/>
+					))}
+				</CardColumns>
+			</Container>
 		</div>
 	);
 };

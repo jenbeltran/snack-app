@@ -42,6 +42,9 @@ const SnackDetails = ({ id, posts }) => {
 			<Button color="info" size="sm" type="submit">
 				Add to Favourites
 			</Button>
+			<Button color="danger" size="sm" type="submit">
+				Remove from Favourites
+			</Button>
 		</div>
 	);
 };
