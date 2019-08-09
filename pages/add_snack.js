@@ -3,11 +3,11 @@ import axios from 'axios';
 import Router from 'next/router';
 import SnackInput from '../styles/SnackInput';
 import Countries from '../styles/Countries';
-import { Button } from 'reactstrap';
+import Modal from '../components/Modal';
 
 const CountryContinentAPI = require('../CountryContinentAPI');
 
-const AddSnack = (props) => {
+const AddSnack = () => {
 	const [ snackName, setSnack ] = useState();
 	const [ snackCountry, setCountry ] = useState();
 	const [ snackContinent, setContinent ] = useState();
@@ -46,9 +46,16 @@ const AddSnack = (props) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+		let snackNameText;
+		snackNameText = snackName
+			.toLowerCase()
+			.split(' ')
+			.map((snack) => snack.charAt(0).toUpperCase() + snack.substring(1))
+			.join(' ');
+
 		axios
 			.post('http://localhost:3000/api/all_snacks', {
-				name      : snackName,
+				name      : snackNameText,
 				country   : snackCountry,
 				continent : snackContinent,
 				photo     : snackPhoto
@@ -61,7 +68,7 @@ const AddSnack = (props) => {
 	return (
 		<div>
 			<h2>Add a Snack</h2>
-			<form onSubmit={handleSubmit}>
+			<form>
 				<h5>Snack Name:</h5>
 				<SnackInput name="name" value={snackName} onChange={handleChangeSnack} />
 				<h5>Country of Origin:</h5>
@@ -70,9 +77,13 @@ const AddSnack = (props) => {
 				<input name="continent" value={snackContinent} readOnly />
 				<h5>Photo:</h5>
 				<input name="photo" value={snackPhoto} onChange={handleChangePhoto} />
-				<Button color="primary" size="sm" type="submit">
-					Submit
-				</Button>
+				<Modal
+					onClick={handleSubmit}
+					name={snackName}
+					country={snackCountry}
+					continent={snackContinent}
+					photo={snackPhoto}
+				/>
 			</form>
 		</div>
 	);

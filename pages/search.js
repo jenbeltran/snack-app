@@ -14,12 +14,18 @@ const SearchSnackResults = () => {
 		console.log('handleSubmitQuery');
 		console.log(query);
 		event.preventDefault();
+		let queryText;
+		queryText = query
+			.toLowerCase()
+			.split(' ')
+			.map((query) => query.charAt(0).toUpperCase() + query.substring(1))
+			.join(' ');
 		let url = 'http://localhost:3000/api/all_snacks';
 		fetch(url)
 			.then((res) => res.json())
 			.then((json) => {
 				for (let i = 0; i < json.length; i++) {
-					if (query != json[i].name) {
+					if (queryText != json[i].name) {
 						console.log('not match');
 					} else {
 						setSnacks([ ...snacks, json[i] ]);

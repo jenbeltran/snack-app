@@ -18,6 +18,9 @@ const Navigationbar = () => {
 				<Collapse isOpen={!collapse} navbar>
 					<Nav navbar>
 						<NavItem>
+							<NavLink href="/about">About</NavLink>
+						</NavItem>
+						<NavItem>
 							<NavLink href="/favourites">Favourites</NavLink>
 						</NavItem>
 						<MiniNavbar />
