@@ -1,6 +1,11 @@
 const Footer = () => (
 	<div>
-		<p>Trademark 2019</p>
+		<p>Jen Beltran 2019</p>
+		<style jsx>{`
+			p {
+				text-align: center;
+			}
+		`}</style>
 	</div>
 );
 

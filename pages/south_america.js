@@ -1,19 +1,25 @@
 import axios from 'axios';
-import Link from 'next/link';
+import { Container, CardColumns } from 'reactstrap';
+import Cards from '../components/Cards';
 
 const SouthAmerica = ({ posts }) => {
 	return (
 		<div>
-			<h2>South America</h2>
-			<ul>
-				{posts.map((southSnacks) => (
-					<li key={southSnacks.id}>
-						<Link href={`/snack_details/${southSnacks.id}`}>
-							<a>{southSnacks.name}</a>
-						</Link>
-					</li>
-				))}
-			</ul>
+			<Container>
+				<h2>South America</h2>
+				<CardColumns>
+					{posts.map((snacks) => (
+						<Cards
+							key={snacks.id}
+							name={snacks.name}
+							country={snacks.country}
+							id={snacks.id}
+							photo={snacks.photo}
+							continent={snacks.continent}
+						/>
+					))}
+				</CardColumns>
+			</Container>
 		</div>
 	);
 };

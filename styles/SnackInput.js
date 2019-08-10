@@ -20,7 +20,7 @@ const SnackInput = (props) => {
 			<TextField
 				required
 				id="outlined-required"
-				label="Snack Name"
+				label="Required"
 				className={classes.textField}
 				margin="normal"
 				variant="outlined"

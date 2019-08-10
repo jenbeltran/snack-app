@@ -4,6 +4,7 @@ import Router from 'next/router';
 import SnackInput from '../styles/SnackInput';
 import Countries from '../styles/Countries';
 import Modal from '../components/Modal';
+import { Container } from 'reactstrap';
 
 const CountryContinentAPI = require('../CountryContinentAPI');
 
@@ -67,24 +68,26 @@ const AddSnack = () => {
 
 	return (
 		<div>
-			<h2>Add a Snack</h2>
-			<form>
-				<h5>Snack Name:</h5>
-				<SnackInput name="name" value={snackName} onChange={handleChangeSnack} />
-				<h5>Country of Origin:</h5>
-				<Countries name="country" value={snackCountry} onChange={handleChangeCountry} />
-				<h5>Continent:</h5>
-				<input name="continent" value={snackContinent} readOnly />
-				<h5>Photo:</h5>
-				<input name="photo" value={snackPhoto} onChange={handleChangePhoto} />
-				<Modal
-					onClick={handleSubmit}
-					name={snackName}
-					country={snackCountry}
-					continent={snackContinent}
-					photo={snackPhoto}
-				/>
-			</form>
+			<Container>
+				<h2>Add a Snack</h2>
+				<form>
+					<h5>Snack Name:</h5>
+					<SnackInput name="name" value={snackName} onChange={handleChangeSnack} />
+					<h5>Country of Origin:</h5>
+					<Countries name="country" value={snackCountry} onChange={handleChangeCountry} />
+					<h5>Continent:</h5>
+					<SnackInput name="continent" value={snackContinent} readOnly />
+					<h5>Photo:</h5>
+					<SnackInput name="photo" value={snackPhoto} onChange={handleChangePhoto} />
+					<Modal
+						onClick={handleSubmit}
+						name={snackName}
+						country={snackCountry}
+						continent={snackContinent}
+						photo={snackPhoto}
+					/>
+				</form>
+			</Container>
 		</div>
 	);
 };

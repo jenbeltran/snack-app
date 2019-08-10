@@ -1,14 +1,33 @@
-import axios from 'axios';
+import { useState } from 'react';
 import { Container, CardColumns } from 'reactstrap';
 import Cards from '../components/Cards';
 
-const Favourites = ({ posts }) => {
+const fetch = require('node-fetch');
+
+const Favourites = () => {
+	const [ snacks, setSnacks ] = useState([]);
+	let url = 'http://localhost:3000/api/all_snacks';
+	fetch(url)
+		.then((res) => res.json())
+		.then((json) => {
+			for (let i = 0; i < json.length; i++) {
+				if (json[i].favourite === 1) {
+					console.log(snacks.push(json[i]));
+					console.log(snacks);
+					setSnacks([ ...snacks, json[i] ]);
+				} else {
+					console.log('not a match');
+				}
+			}
+		})
+		.catch((err) => console.log(err));
+
 	return (
 		<div>
 			<Container>
 				<h2>My Favourites</h2>
 				<CardColumns>
-					{posts.map((snacks) => (
+					{snacks.map((snacks) => (
 						<Cards
 							key={snacks.id}
 							name={snacks.name}
@@ -22,18 +41,6 @@ const Favourites = ({ posts }) => {
 			</Container>
 		</div>
 	);
-};
-
-Favourites.getInitialProps = async () => {
-	const { data } = await axios.get('http://localhost:3000/api/all_snacks');
-	for (let i = 0; i < data.length; i++) {
-		if (data[i].favourite === 1) {
-			console.log(data[i]);
-
-			// return { posts: data[i] };
-		}
-	}
-	return { posts: data };
 };
 
 export default Favourites;

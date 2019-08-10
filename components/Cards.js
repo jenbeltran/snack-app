@@ -18,7 +18,7 @@ const CardTemplate = (props) => {
 						</CardTitle>
 						<CardSubtitle>{props.country}</CardSubtitle>
 						<CardText>{props.continent}</CardText>
-						<Button color="info" size="sm">
+						<Button color="info" size="sm" href={`/snack_details/${props.id}`}>
 							See Details
 						</Button>
 					</CardBody>
