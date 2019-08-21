@@ -25,9 +25,6 @@ const Navigationbar = () => {
 						</NavItem>
 						<MiniNavbar />
 						<NavItem>
-							<NavLink href="/search">Search</NavLink>
-						</NavItem>
-						<NavItem>
 							<NavLink href="/add_snack">Add a Snack</NavLink>
 						</NavItem>
 					</Nav>

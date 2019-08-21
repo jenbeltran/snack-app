@@ -26,7 +26,7 @@ const MiniNavbar = () => {
 						<NavLink href="/oceania">Oceania</NavLink>
 					</NavItem>
 					<NavItem className="dropdown">
-						<NavLink href="/">All Snacks</NavLink>
+						<NavLink href="/all_snacks">All Snacks</NavLink>
 					</NavItem>
 				</Nav>
 			</UncontrolledCollapse>
