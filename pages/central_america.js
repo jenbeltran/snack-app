@@ -6,7 +6,7 @@ const CentralAmerica = ({ posts }) => {
 	return (
 		<div>
 			<Container>
-				<h2>Central America</h2>
+				<h1>Central America</h1>
 				<CardColumns>
 					{posts.map((snacks) => (
 						<Cards

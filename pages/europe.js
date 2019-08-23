@@ -6,7 +6,7 @@ const Europe = ({ posts }) => {
 	return (
 		<div>
 			<Container>
-				<h2>Europe</h2>
+				<h1>Europe</h1>
 				<CardColumns>
 					{posts.map((snacks) => (
 						<Cards

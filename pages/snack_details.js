@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { Container, Button } from 'reactstrap';
+import { Container, Row, Col, Card, CardBody, CardTitle, Button } from 'reactstrap';
 
-const CountryCodeAPI = require('../CountryCodeAPI');
+const CountryCodeAPI = require('../api/CountryCodeAPI');
 
 const SnackDetails = ({ id, posts }) => {
 	// must define countryCode so you can pass it down to the img src
@@ -16,36 +16,58 @@ const SnackDetails = ({ id, posts }) => {
 	return (
 		<div>
 			<Container>
-				<h2>Snack Details</h2>
+				<h1>Snack Details</h1>
+				<Row>
+					<Col sm="6">
+						<Card>
+							<CardBody>
+								{posts.map((snackDetails) => (
+									<div key={snackDetails.id}>
+										<CardTitle>
+											<h4>{snackDetails.name}</h4>
+										</CardTitle>
+										<img src={snackDetails.photo} alt="snack image" width="300" height="200" />
+										<h6>Country: {snackDetails.country}</h6>
+										<p>Continent: {snackDetails.continent}</p>
+									</div>
+								))}
 
-				{posts.map((snackDetails) => (
-					<div key={snackDetails.id}>
-						<h4>{snackDetails.name}</h4>
-						<img src={snackDetails.photo} alt="snack image" width="300" height="200" />
-						<h6>Country: {snackDetails.country}</h6>
-						<p>Continent: {snackDetails.continent}</p>
-					</div>
-				))}
+								<img src={`https://www.countryflags.io/${countryCode}/shiny/64.png`} alt="flag image" />
+							</CardBody>
+						</Card>
+					</Col>
 
-				<img src={`https://www.countryflags.io/${countryCode}/shiny/64.png`} alt="flag image" />
-
-				{posts.map((snackDetails) => (
-					<div key={snackDetails.id}>
-						<h4>Buy Now</h4>
-						<h6>Scan below to purchase</h6>
-						<img
-							src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.amazon.ca/s?k=${snackDetails.name}&ref=nb_sb_noss`}
-							alt={`${snackDetails.name} QR code`}
-						/>
-					</div>
-				))}
-
-				<Button color="info" size="sm" type="submit">
-					Add to Favourites
-				</Button>
-				<Button color="danger" size="sm" type="submit">
-					Remove from Favourites
-				</Button>
+					<Col sm="6">
+						<Card>
+							<CardBody>
+								<CardTitle>
+									<h4>Buy Now</h4>
+									<h6>Scan below to purchase</h6>
+								</CardTitle>
+								{posts.map((snackDetails) => (
+									<div key={snackDetails.id}>
+										<img
+											src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.amazon.ca/s?k=${snackDetails.name}&ref=nb_sb_noss`}
+											alt={`${snackDetails.name} QR code`}
+										/>
+									</div>
+								))}
+							</CardBody>
+						</Card>
+					</Col>
+				</Row>
+				<Row>
+					<Col sm="6">
+						<CardBody>
+							<Button color="primary" size="sm" type="submit">
+								Add to Favourites
+							</Button>
+							<Button color="danger" size="sm" type="submit">
+								Remove from Favourites
+							</Button>
+						</CardBody>
+					</Col>
+				</Row>
 			</Container>
 		</div>
 	);

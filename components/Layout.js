@@ -10,6 +10,10 @@ const Layout = (props) => {
 				a {
 					color: black;
 				}
+				h1 {
+					margin-top: 30px;
+					font-family: 'Passion One', cursive;
+				}
 			`}</style>
 		</div>
 	);

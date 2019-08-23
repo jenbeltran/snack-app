@@ -6,7 +6,7 @@ const AllSnacks = ({ posts }) => {
 	return (
 		<div>
 			<Container>
-				<h2>All Snacks</h2>
+				<h1>All Snacks</h1>
 				<CardColumns>
 					{posts.map((snacks) => (
 						<Cards

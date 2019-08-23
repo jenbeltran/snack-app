@@ -4,6 +4,8 @@ import Layout from '../components/Layout';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Head from 'next/head';
+import ScrollUpButton from 'react-scroll-up-button';
+import Headroom from 'react-headroom';
 
 class MyApp extends App {
 	static async getInitialProps({ Component, ctx }) {
@@ -28,10 +30,14 @@ class MyApp extends App {
 						integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 						crossorigin="anonymous"
 					/>
+					<link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet" />
 				</Head>
 				<Layout>
-					<Navbar />
+					<Headroom>
+						<Navbar />
+					</Headroom>
 					<Component {...pageProps} />
+					<ScrollUpButton />
 					<Footer />
 				</Layout>
 			</Container>

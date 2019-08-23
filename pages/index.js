@@ -1,5 +1,6 @@
+import React from 'react';
 import { useState } from 'react';
-import { Container, Row, CardColumns } from 'reactstrap';
+import { Container, CardColumns } from 'reactstrap';
 import Cards from '../components/Cards';
 
 const fetch = require('node-fetch');
@@ -46,8 +47,8 @@ const SearchSnackResults = () => {
 		<div>
 			<Container>
 				<img
-					className="col-sm-12 col-md-6 offset-md-3"
-					src="https://lh3.googleusercontent.com/cHWR-K0aY1luxGrVWdBWlZaB8o4xXU_vZCF8WsJ_bHyZKt-nQsWldmXcnB6K3TL7yU7KkrDBB9BgI8-s7yNZYxvM7xW0VHocEPGFNxzFgqNSZmMRTalJGZyo5MLE12cl5cF6qBXUHyOBwtomuLTn6Z3BXuwSSEybz3EamWHklZ4ZSz6rZUsceO8RpcodsC_iSZpZKzq7IVDf4a76zsPKK62R5_AQSVbdRpN1l_KI3JljCI9YZuARrt-9XBrZWF9gpBA8kMIAzpvhvC422pZ5EfsSG5vn69gDjQKkWljG0AB9zhChTgXu_xubPdbhUtJqcg1RPcdvLAUMgtSlJPq8l-du-RLxg4j2SNXH6SKZ0e29uaR8HKCl47pR1VwulnWz3GiDWdg0-UBF7HhUk_qemJsqML7PyT3EqA72GrYdddn72sBFJKO65-wvRFd5IH-UDLrQFxhMdH4vy3TpuhmGSeL6Oj8TMNCC7e4IUw961-X8TiO93yJKWpjbTRTqWTEdn9nhvfXwjwbV1m7rspHw_c7bY_hq-lJmVc7OpLNaHzji5vlipE_DtTcoKxZWOq9OEdZQkYWjSXz48AeNgZdvgs8u0KE0qpAWk6G-Ceop_d_rRjHiJM9LdjzpZ1-eCmXmzifVuDcY9fbnd8GysQE9pmcTEKbeRRjJSUG07f-z8-mdj3DCn50PFfeTtogyIPSsAW1fGbYDHMTqlNeoL1aLYZPx=w836-h616-no"
+					className="col-sm-10 col-md-4 offset-md-4"
+					src="https://lh3.googleusercontent.com/1cudL-wlP_9D-RCPwDa1BkgcvN1RQabBjsT9PNc3ibAv3CnSORrAtBqOGY22JXnjvk_Echm9s0YIijXxvzG3GsbPkxEQ4HFJcWZSgoquGGK7X-2c54THVrVYyeeDR_BxMd_SWCl1mOUYXv_OXoFES0g7qnbft-TEC3E2Kg71HJh0jV2We5ddWsSx8xom8SQ4rqvmYahIkF0CpKQ7APOU67ka44vAdv9_EQi0Lvtp0c4I78V4nu0r3SZRCKoJU2mbJ8ROLFWnrlYbzh0WzI_lQBUIIjybwk9M6gqixK_d_FT2bgGmrw8ul_7VSzQZ4ogF0G-qcqXr7yKcLZcWN9t8U8n2jJE7eT5s9oGrGAHbXMwIXqfLgHDMgwxTKfiOoCSDF02dbU0aUyVkx_XsDSw0c7hV0Zf2hVloIL9_ndGp0aVR-9AcMi8dlBGCJqVWkW9bgrf6MJKrI5ZUE6aUKkoWWRMX18onQvKBHTdh3T1VbdxdvIOq4AoIhW9yZ18UpA6PLMgM9QoZ2wNFK1H6WyPtQ_zOwi1Kbca8HkQUkadaLA7-C1l3UB5hcKTkxn1jSX3SrOZ5TBHe66wjiRiYXF8UgUCDa0BkztyoCsPbSmhRIQoT3SrCoiwnoBt_BHvaGA9owa2GfOZ8MvEtvFi60pb_0NN6D9iXmSjDEhvXxmUGsHQ7Q3dCug5H7Nvwe2D7pkcn2Q3D26tVzpslDsmYNhsuDSrd=w836-h616-no"
 					alt="Pick My Snack Logo"
 				/>
 
@@ -60,6 +61,7 @@ const SearchSnackResults = () => {
 						onChange={handleQuery}
 						onClick={handleClearInputBox}
 					/>
+
 					<button
 						className="col-sm-6 col-md-4 offset-md-4 btn btn-dark"
 						type="submit"
@@ -87,6 +89,9 @@ const SearchSnackResults = () => {
 				}
 				input {
 					text-align: center;
+				}
+				form {
+					margin-bottom: 5em;
 				}
 			`}</style>
 		</div>
