@@ -37,7 +37,6 @@ const SearchSnackResults = () => {
 	};
 
 	const handleClearInputBox = (event) => {
-		console.log('handleClearInputBox');
 		setQuery('');
 		setSnacks([]);
 		console.log(query);

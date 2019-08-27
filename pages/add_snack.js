@@ -8,30 +8,26 @@ import { Container, Row, Col, Card, CardBody } from 'reactstrap';
 
 const CountryContinentAPI = require('../api/CountryContinentAPI');
 
-const AddSnack = () => {
+const AddSnack = (event) => {
 	const [ snackName, setSnack ] = useState();
 	const [ snackCountry, setCountry ] = useState();
 	const [ snackContinent, setContinent ] = useState();
 	const [ snackPhoto, setPhoto ] = useState();
 
 	const handleChangeSnack = (e) => {
-		console.log('handleChangeSnack');
 		setSnack(e.target.value);
 	};
 
 	const handleChangeCountry = (e) => {
-		console.log('handleChangeCountry');
 		setCountry(e.target.value);
 	};
 
 	useEffect(
 		() => {
 			const handleChangeContinent = (snackCountry) => {
-				console.log('handleChangeContinent');
 				for (let i = 0; i < CountryContinentAPI.default.length; i++) {
 					if (snackCountry === CountryContinentAPI.default[i].country) {
 						setContinent(CountryContinentAPI.default[i].continent);
-						console.log(snackContinent);
 					}
 				}
 			};
@@ -41,7 +37,6 @@ const AddSnack = () => {
 	);
 
 	const handleChangePhoto = (e) => {
-		console.log('handleChangePhoto');
 		setPhoto(e.target.value);
 	};
 
@@ -61,7 +56,6 @@ const AddSnack = () => {
 				continent : snackContinent,
 				photo     : snackPhoto
 			})
-			.then((data) => console.log(data))
 			.then(Router.push(`/`))
 			.catch((err) => console.log(err));
 	};
@@ -74,23 +68,21 @@ const AddSnack = () => {
 					<Col sm="6">
 						<Card>
 							<CardBody>
-								<form>
-									<h5>Snack Name:</h5>
-									<SnackInput name="name" value={snackName} onChange={handleChangeSnack} />
-									<h5>Country of Origin:</h5>
-									<Countries name="country" value={snackCountry} onChange={handleChangeCountry} />
-									<h5>Continent:</h5>
-									<SnackInput name="continent" value={snackContinent} readOnly />
-									<h5>Photo:</h5>
-									<SnackInput name="photo" value={snackPhoto} onChange={handleChangePhoto} />
-									<Modal
-										onClick={handleSubmit}
-										name={snackName}
-										country={snackCountry}
-										continent={snackContinent}
-										photo={snackPhoto}
-									/>
-								</form>
+								<h5>Snack Name:</h5>
+								<SnackInput name="name" value={snackName} onChange={handleChangeSnack} />
+								<h5>Country of Origin:</h5>
+								<Countries name="country" value={snackCountry} onChange={handleChangeCountry} />
+								<h5>Continent:</h5>
+								<SnackInput name="continent" value={snackContinent} readOnly />
+								<h5>Photo:</h5>
+								<SnackInput name="photo" value={snackPhoto} onChange={handleChangePhoto} />
+								<Modal
+									onClick={handleSubmit}
+									name={snackName}
+									country={snackCountry}
+									continent={snackContinent}
+									photo={snackPhoto}
+								/>
 							</CardBody>
 						</Card>
 					</Col>
@@ -118,6 +110,11 @@ const AddSnack = () => {
 			`}</style>
 		</div>
 	);
+};
+
+AddSnack.getInitialProps = async () => {
+	const { data } = await axios.get('http://localhost:3000/api/all_snacks');
+	return { posts: data };
 };
 
 export default AddSnack;
