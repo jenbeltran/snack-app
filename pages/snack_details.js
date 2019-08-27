@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
+import Router from 'next/router';
 import { Container, Row, Col, Card, CardBody, CardTitle, Button } from 'reactstrap';
 
 const CountryCodeAPI = require('../api/CountryCodeAPI');
 
-const SnackDetails = ({ id, posts }) => {
+const SnackDetails = ({ posts }) => {
 	// must define countryCode so you can pass it down to the img src
 	let countryCode;
 	for (let i = 0; i < CountryCodeAPI.default.length; i++) {
@@ -12,6 +13,16 @@ const SnackDetails = ({ id, posts }) => {
 			countryCode = CountryCodeAPI.default[i].code;
 		}
 	}
+
+	const SelectFavourite = () => {
+		let id = posts[0].id;
+		event.preventDefault();
+		axios
+			.put(`http://localhost:3000/api/snack_details/${id}`)
+			.then((data) => console.log(data))
+			.then(Router.push(`/snack_details/${id}`))
+			.catch((err) => console.log(err));
+	};
 
 	return (
 		<div>
@@ -59,12 +70,19 @@ const SnackDetails = ({ id, posts }) => {
 				<Row>
 					<Col sm="6">
 						<CardBody>
-							<Button color="primary" size="sm" type="submit">
-								Add to Favourites
-							</Button>
-							<Button color="danger" size="sm" type="submit">
-								Remove from Favourites
-							</Button>
+							{posts.map((snackDetails) => (
+								<div key={snackDetails.id}>
+									{snackDetails.favourite === 1 ? (
+										<Button color="danger" size="sm" type="submit" onClick={SelectFavourite}>
+											Remove from Favourites
+										</Button>
+									) : (
+										<Button color="primary" size="sm" type="submit" onClick={SelectFavourite}>
+											Add to Favourites
+										</Button>
+									)}
+								</div>
+							))}
 						</CardBody>
 					</Col>
 				</Row>
