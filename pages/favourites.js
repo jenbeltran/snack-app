@@ -2,11 +2,11 @@ import axios from 'axios';
 import { Container, CardColumns } from 'reactstrap';
 import Cards from '../components/Cards';
 
-const Faves = ({ posts }) => {
+const Favourites = ({ posts }) => {
 	return (
 		<div>
 			<Container>
-				<h1>Faves</h1>
+				<h1>My Favourites</h1>
 				<CardColumns>
 					{posts.map((snacks) => {
 						return snacks.favourite === 1 ? (
@@ -28,9 +28,9 @@ const Faves = ({ posts }) => {
 	);
 };
 
-Faves.getInitialProps = async () => {
+Favourites.getInitialProps = async () => {
 	const { data } = await axios.get('http://localhost:3000/api/all_snacks');
 	return { posts: data };
 };
 
-export default Faves;
+export default Favourites;

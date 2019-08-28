@@ -19,7 +19,6 @@ const SnackDetails = ({ posts }) => {
 		event.preventDefault();
 		axios
 			.put(`http://localhost:3000/api/snack_details/${id}`)
-			.then((data) => console.log(data))
 			.then(Router.push(`/snack_details/${id}`))
 			.catch((err) => console.log(err));
 	};
