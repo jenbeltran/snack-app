@@ -56,7 +56,7 @@ const AddSnack = (event) => {
 				continent : snackContinent,
 				photo     : snackPhoto
 			})
-			.then(Router.push(`/`))
+			.then(Router.push(`/all_snacks`))
 			.catch((err) => console.log(err));
 	};
 

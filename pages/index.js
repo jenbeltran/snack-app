@@ -14,7 +14,6 @@ const SearchSnackResults = () => {
 	};
 
 	const handleSubmitQuery = (event) => {
-		console.log('handleSubmitQuery');
 		event.preventDefault();
 		let queryText;
 		queryText = query
@@ -27,11 +26,11 @@ const SearchSnackResults = () => {
 			.then((res) => res.json())
 			.then((json) => {
 				for (let i = 0; i < json.length; i++) {
-					if (queryText === json[i].name) {
-						setSnacks([ ...snacks, json[i] ]);
-						console.log(snacks.push(json[i]));
+					if (json[i].name.match(queryText) && queryText != '') {
+						snacks.push(json[i]);
 					}
 				}
+				setSnacks([ ...snacks ]);
 			})
 			.catch((err) => console.log(err));
 	};
@@ -39,7 +38,6 @@ const SearchSnackResults = () => {
 	const handleClearInputBox = (event) => {
 		setQuery('');
 		setSnacks([]);
-		console.log(query);
 	};
 
 	return (
@@ -73,6 +71,7 @@ const SearchSnackResults = () => {
 				<CardColumns>
 					{snacks.map((snacks) => (
 						<Cards
+							key={snacks.id}
 							name={snacks.name}
 							country={snacks.country}
 							id={snacks.id}

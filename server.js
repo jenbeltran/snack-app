@@ -64,7 +64,6 @@ app.prepare().then(() => {
 		app.render(req, res, '/snack_details', { id: req.params.id });
 	});
 
-	//TODO:
 	server.put('/api/snack_details/:id', (req, res) => {
 		db.query(
 			'UPDATE snacks SET favourite=(CASE WHEN favourite=0 THEN 1 ELSE 0 END) WHERE id=?',

@@ -11,10 +11,7 @@ const About = () => (
 							<h3>Welcome to my capstone course project!</h3>
 						</CardTitle>
 						<p>Pick My Snack is a web application that connects snacks enthusiasts together.</p>
-						<p>
-							Users can add snacks, buy snacks (via QR code), rate snacks, and even add snacks to the
-							favourites page.
-						</p>
+						<p>Users can add snacks, buy snacks (via QR code), and select favourites.</p>
 
 						<p>Development stack used: React, Express, Node, NextJS, MySQL</p>
 					</CardBody>
