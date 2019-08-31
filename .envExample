@@ -1,9 +1,10 @@
 // Connection keys
-HTTP_PORT=
-
+HTTP_PORT=9999
+USERNAME="username"
+PASSWORD="password"
 
 //DB keys
-DB_HOST='hostname'
-DB_USER='username'
-DB_PASSWORD='password'
-DB_NAME='databasename'
+DB_HOST='dbhost'
+DB_USER='dbuser'
+DB_PASSWORD='dbpassword'
+DB_NAME='dbname'

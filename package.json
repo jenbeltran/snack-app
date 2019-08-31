@@ -6,7 +6,8 @@
 	"scripts": {
 		"dev": "node server.js",
 		"build": "next build",
-		"start": "NODE_ENV=production node server.js"
+		"start": "NODE_ENV=production node server.js",
+		"test": "jest"
 	},
 	"author": "",
 	"license": "ISC",
@@ -29,5 +30,14 @@
 		"react-scroll-up-button": "^1.6.4",
 		"reactstrap": "^8.0.1",
 		"save": "^2.4.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.5.5",
+		"babel-jest": "^24.9.0",
+		"enzyme": "^3.10.0",
+		"enzyme-adapter-react-16": "^1.14.0",
+		"jest": "^24.9.0",
+		"react-addons-test-utils": "^15.6.2",
+		"react-test-renderer": "^16.9.0"
 	}
 }
