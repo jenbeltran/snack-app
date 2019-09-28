@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+    nodeapp:
+      container_name: api
+      build:
+        context: .
+      ports:
+        - "4444:3000"
+      depends_on:
+        - db
+      environment:
+          DATABASE_HOST: "db"
+          DATABASE_USER: "user"
+          DATABASE_PASSWORD: "pass"
+          DATABASE_NAME: "db"        
+        
+    db:
+      image: "mysql:5.7"
+      environment:
+            MYSQL_ROOT_PASSWORD: notsecure
+            MYSQL_DATABASE: "db"
+            MYSQL_USER: user
+            MYSQL_PASSWORD: pass
+      ports: 
+        - "9000:3306"

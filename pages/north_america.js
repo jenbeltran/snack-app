@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Container, CardColumns } from 'reactstrap';
-import Cards from '../components/Cards';
+import Cards from '../static/components/Cards';
 
 const NorthAmerica = ({ posts }) => {
 	return (

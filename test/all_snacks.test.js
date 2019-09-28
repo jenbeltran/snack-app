@@ -1,27 +1,34 @@
-import mockAxios from 'axios';
-import allSnacks from '../pages/all_snacks';
+import { render, cleanup } from '@testing-library/react';
+import axios from 'axios';
+import AllSnacks from './../pages/all_snacks';
+import React from 'react';
 
-it('fetches data from unsplash', async () => {
-	// setup
-	mockAxios.get.mockImplementationOnce(() =>
-		Promise.resolve({
-			data : {
-				id        : 1,
-				name      : 'Coffee Crisp',
-				country   : 'United Kingdom',
-				continent : 'Europe',
-				photo     :
-					'https://americanfizz.co.uk/image/cache/catalog/canadian-products/coffee-crisp/nestle-coffee-crisp-50g-48ct-800x800.png',
-				favourite : 1
-			}
-		})
-	);
+const response = {
+	data : [
+		{
+			id        : 1,
+			name      : 'test-1',
+			country   : 'canada',
+			photo     : 'test-photo',
+			continent : 'north america'
+		},
+		{
+			id        : 2,
+			name      : 'test-2',
+			country   : 'China',
+			photo     : 'test-photo',
+			continent : 'asia'
+		}
+	]
+};
 
-	// work
-	const snackInfo = await allSnacks('snacks');
+jest.mock('axios');
 
-	// expect
-	expect(snackInfo.name).toEqual('Coffee Crisp');
-	expect(mockAxios.get).toHaveBeenCalledTimes(1);
-	expect(mockAxios.get).toHaveBeenCalledWith('http://localhost:3000/api/all_snacks');
+// Cleans up the virtual DOM after each test.
+afterEach(cleanup);
+describe('<AllSnacks />', () => {
+	axios.mockImplementation(() => Promise.resolve(response));
+	test('it renders', () => {
+		render(<AllSnacks posts={response.data} />);
+	});
 });

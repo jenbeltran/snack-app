@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Router from 'next/router';
-import SnackInput from '../styles/SnackInput';
-import Countries from '../styles/Countries';
-import Modal from '../components/Modal';
+import SnackInput from '../static/styles/SnackInput';
+import Countries from '../static/styles/Countries';
+import Modal from '../static/components/Modal';
 import { Container, Row, Col, Card, CardBody } from 'reactstrap';
 
-const CountryContinentAPI = require('../api/CountryContinentAPI');
+const CountryContinentAPI = require('../src/CountryContinentAPI');
 
 const AddSnack = (event) => {
 	const [ snackName, setSnack ] = useState();

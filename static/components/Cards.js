@@ -4,7 +4,7 @@ import { Card, Container, CardText, CardBody, CardTitle, CardSubtitle, Button } 
 
 const CardTemplate = (props) => {
 	return (
-		<div>
+		<div data-testid={`card-${props.index}`}>
 			<Card>
 				<Container>
 					<img width="200" height="100" src={props.photo} alt={`${props.name} photo`} />

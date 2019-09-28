@@ -3,7 +3,7 @@ import axios from 'axios';
 import Router from 'next/router';
 import { Container, Row, Col, Card, CardBody, CardTitle, Button } from 'reactstrap';
 
-const CountryCodeAPI = require('../api/CountryCodeAPI');
+const CountryCodeAPI = require('../src/CountryCodeAPI');
 
 const SnackDetails = ({ posts }) => {
 	// must define countryCode so you can pass it down to the img src
