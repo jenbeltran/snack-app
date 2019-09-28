@@ -88,12 +88,7 @@ const AddSnack = (event) => {
 					</Col>
 					<Col sm="6">
 						<CardBody>
-							<img
-								width="95%"
-								height="95%"
-								src="https://lh3.googleusercontent.com/uPtIEka4xr3QQb6IyxkWTJGmGEJVrxh1PEZtWwAwdwbUBYKH53MIRs29U6uU5Ff9opncv--nhSWZ8ygyrAIaP-LeLeorNAF_k0V2G534OyDUxIuECWCZKeJ6oLVKPN1JU3D9nwH4-7pLiEScW9IspSB-b71RMnpOdUTMDTcclX4PnKvMluF8JZv4WE1Q25qbpxCAfUydRKUDAruU6uFd6aHh8eYgejQFlRi4zzfPE-eHHMVe5EUZdrsyjCewYNW55oYwiyxWVQpKQ9fDKJ0_lCSaVl5ft_dMydzb9zZkBonvOgaDF5SP8z2sZDQ1Qnljcu8NheR94QFNQ3EpVh6LURaVoa8ug1cMgrN7E29BR7bCYiB3sUKIgmCx8xVpJdFzy_cllXOyl86iaGlOzd-Pgw_PvEenAkz9_BvfogyPA2s6LpOIBbY1e2mpYf7grVT4wnrNEKKxXxK4eiXvhsfvBK2ZvJTVLszWN0GctkhCQ_NlSq3IcG2qW-pxQ-x9iGMesuGpSEFJ3XUkI8aPoveyx25OAFr9bMH705LfyzMbIffbkx2D-FHsAJtsfdw9mtS8PfDe1FMkjByWdrV3KJ39oh8UBDEjjxm5EGnXnpnRhFL4ktZa6Wz-JAYtuYBm4VISNzCs0n1WW5EC7Ru8-V6oGJcgD-aqujqwaTj-fPbfWwFIRGnrPGUo_7cks8Db9P-MLWJtV2Fe8ywyelRdiIrU0n-a=s800-no"
-								alt="Donut photo"
-							/>
+							<img width="95%" height="95%" src="static/donut.png" alt="Donut photo" />
 						</CardBody>
 					</Col>
 				</Row>

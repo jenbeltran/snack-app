@@ -46,7 +46,7 @@ const SearchSnackResults = () => {
 	return (
 		<div>
 			<Container>
-				<img className="col-sm-10 col-md-4 offset-md-4" src="static/Logo.png" alt="Pick My Snack Logo" />
+				<img className="col-sm-10 col-md-4 offset-md-4" src="static/logo.png" alt="Pick My Snack Logo" />
 
 				<form>
 					<label className="col-sm-12 col-md-6 offset-md-5" htmlFor="search">
