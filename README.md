@@ -17,6 +17,7 @@ To open application:
 npm install
 npm run dev
 ```
-Since MySQL is local, please connect your MySQL keys in the .envExample file
-Snacks that I've used are in the database/snacks.sql file
+Since MySQL is local, please connect your MySQL keys in the .envExample file.
+
+Snacks that I've used are in the database/snacks.sql file.
 
